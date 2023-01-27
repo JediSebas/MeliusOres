@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "meliusores:alexandrite_ore"
+  },
+  "result": "meliusores:alexandrite_gem",
+  "experience": 1.0,
+  "cookingtime": 200
+}

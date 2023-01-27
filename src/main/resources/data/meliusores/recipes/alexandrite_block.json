@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "blocks",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:gems/alexandrite"
+    }
+  },
+  "result": {
+    "item": "meliusores:alexandrite_block",
+    "count": 1
+  }
+}

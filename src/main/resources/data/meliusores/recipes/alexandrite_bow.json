@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bows",
+  "pattern": [
+    " #S",
+    "I S",
+    " #S"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:rods/alexandrite"
+    },
+    "S": {
+      "item": "minecraft:string"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "meliusores:alexandrite_bow",
+    "count": 1
+  }
+}

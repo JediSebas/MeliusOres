@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "meliusores:alexandrite_block"
+    }
+  ],
+  "result": {
+    "item": "meliusores:alexandrite_gem",
+    "count": 9
+  }
+}

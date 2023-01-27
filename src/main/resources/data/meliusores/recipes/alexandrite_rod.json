@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "rods",
+  "pattern": [
+    "#",
+    "#"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:gems/alexandrite"
+    }
+  },
+  "result": {
+    "item": "meliusores:alexandrite_rod",
+    "count": 1
+  }
+}
