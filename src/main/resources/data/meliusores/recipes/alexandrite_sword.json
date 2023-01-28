@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "swords",
+  "pattern": [
+    "#",
+    "#",
+    "S"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:gems/alexandrite"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "meliusores:alexandrite_sword",
+    "count": 1
+  }
+}

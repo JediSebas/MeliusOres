@@ -21,7 +21,7 @@ public class ModBlocks {
 
     public static final RegistryObject<OreBlock> ALEXANDRITE_ORE = registerBlock("alexandrite_ore",
             () -> new OreBlock(AbstractBlock.Properties.of(Material.STONE)
-                    .harvestLevel(2).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().strength(5f)));
+                    .harvestLevel(4).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().strength(7f)));
 
     public static final RegistryObject<Block> ALEXANDRITE_BLOCK = registerBlock("alexandrite_block",
             () -> new Block(AbstractBlock.Properties.of(Material.METAL)

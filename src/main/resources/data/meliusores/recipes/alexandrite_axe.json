@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "axes",
+  "pattern": [
+    "##",
+    "#S",
+    " S"
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:gems/alexandrite"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "meliusores:alexandrite_axe",
+    "count": 1
+  }
+}

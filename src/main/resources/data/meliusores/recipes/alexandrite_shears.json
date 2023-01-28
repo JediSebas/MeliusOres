@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "axes",
+  "pattern": [
+    " #",
+    "# "
+  ],
+  "key": {
+    "#": {
+      "tag": "forge:gems/alexandrite"
+    }
+  },
+  "result": {
+    "item": "meliusores:alexandrite_shears",
+    "count": 1
+  }
+}
