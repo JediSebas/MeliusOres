@@ -33,7 +33,13 @@ public class ModItemTags extends ItemTagsProvider {
         this.tag(TagUtils.forgeTag("rods"))
                 .addTag(TagUtils.forgeTag("rods/alexandrite"));
 
+        this.tag(TagUtils.forgeTag("rods"))
+                .addTag(TagUtils.forgeTag("rods/iron"));
+
         this.tag(TagUtils.forgeTag("rods/alexandrite"))
                 .add(ModItems.ALEXANDRITE_ROD.get());
+
+        this.tag(TagUtils.forgeTag("rods/iron"))
+                .add(ModItems.IRON_ROD.get());
     }
 }

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#forge:rods/alexandrite"
+    "#forge:rods/alexandrite",
+    "#forge:rods/iron"
   ]
 }

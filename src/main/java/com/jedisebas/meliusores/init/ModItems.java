@@ -1,6 +1,8 @@
 package com.jedisebas.meliusores.init;
 
 import com.jedisebas.meliusores.MeliusOres;
+import com.jedisebas.meliusores.content.BowOne;
+import com.jedisebas.meliusores.content.BowTwo;
 import com.jedisebas.meliusores.content.MeliusOresItemTier;
 import mod.alexndr.simplecorelib.content.SimpleShearsItem;
 import net.minecraft.item.*;
@@ -17,6 +19,9 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModItemGroup.MELIUS_ORES_GROUP)));
 
     public static final RegistryObject<Item> ALEXANDRITE_ROD = ITEMS.register("alexandrite_rod",
+            () -> new Item(new Item.Properties().tab(ModItemGroup.MELIUS_ORES_GROUP)));
+
+    public static final RegistryObject<Item> IRON_ROD = ITEMS.register("iron_rod",
             () -> new Item(new Item.Properties().tab(ModItemGroup.MELIUS_ORES_GROUP)));
 
     public static final RegistryObject<Item> ALEXANDRITE_SWORD = ITEMS.register("alexandrite_sword",
@@ -44,7 +49,10 @@ public class ModItems {
                     .tab(ModItemGroup.MELIUS_ORES_GROUP)));
 
     public static final RegistryObject<Item> ALEXANDRITE_BOW = ITEMS.register("alexandrite_bow",
-            () -> new BowItem(new Item.Properties().durability(750).tab(ModItemGroup.MELIUS_ORES_GROUP)));
+            () -> new BowTwo(new Item.Properties().durability(1000).tab(ModItemGroup.MELIUS_ORES_GROUP)));
+
+    public static final RegistryObject<Item> IRON_BOW = ITEMS.register("iron_bow",
+            () -> new BowOne(new Item.Properties().durability(750).tab(ModItemGroup.MELIUS_ORES_GROUP)));
 
     public static void register(final IEventBus eventBus) {
         ITEMS.register(eventBus);

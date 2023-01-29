@@ -1,0 +1,6 @@
+{
+  "parent": "meliusores:item/iron_bow",
+  "textures": {
+    "layer0": "meliusores:item/iron_bow_pulling_1"
+  }
+}

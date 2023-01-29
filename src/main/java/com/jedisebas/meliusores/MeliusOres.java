@@ -60,6 +60,7 @@ public class MeliusOres {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
         ModItemModelProperties.makeBow(ModItems.ALEXANDRITE_BOW.get());
+        ModItemModelProperties.makeBow(ModItems.IRON_BOW.get());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

@@ -9,7 +9,15 @@
   "item.meliusores.alexandrite_shears": "Alexandrite Shears",
   "item.meliusores.alexandrite_axe": "Alexandrite Axe",
   "item.meliusores.alexandrite_hoe": "Alexandrite Hoe",
+
   "item.meliusores.alexandrite_bow": "Alexandrite Bow",
+  "item.meliusores.iron_bow": "Iron Bow",
+
   "item.meliusores.alexandrite_rod": "Alexandrite Rod",
-  "item.meliusores.alexandrite_gem": "Alexandrite"
+  "item.meliusores.iron_rod": "Iron Rod",
+
+  "item.meliusores.alexandrite_gem": "Alexandrite",
+
+  "tips.punch_tooltip": "+Punch",
+  "tips.unbreaking_tooltip": "+Unbreaking"
 }
