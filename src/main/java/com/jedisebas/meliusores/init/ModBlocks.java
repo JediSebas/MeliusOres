@@ -19,7 +19,7 @@ public class ModBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MeliusOres.MOD_ID);
 
-    public static final RegistryObject<OreBlock> ALEXANDRITE_ORE = registerBlock("alexandrite_ore",
+    public static final RegistryObject<Block> ALEXANDRITE_ORE = registerBlock("alexandrite_ore",
             () -> new OreBlock(AbstractBlock.Properties.of(Material.STONE)
                     .harvestLevel(4).harvestTool(ToolType.PICKAXE).requiresCorrectToolForDrops().strength(7f)));
 

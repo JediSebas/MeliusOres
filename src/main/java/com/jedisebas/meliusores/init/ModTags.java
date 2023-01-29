@@ -10,6 +10,7 @@ public class ModTags {
         public static final ITag.INamedTag<Item> ORES_ALEXANDRITE = TagUtils.forgeTag("ores/alexandrite");
         public static final ITag.INamedTag<Item> BLOCKS_ALEXANDRITE = TagUtils.forgeTag("blocks/alexandrite");
         public static final ITag.INamedTag<Item> RODS_ALEXANDRITE = TagUtils.forgeTag("rods/alexandrite");
+        public static final ITag.INamedTag<Item> RODS_IRON = TagUtils.forgeTag("rods/iron");
     }
 
     public static class Blocks {
