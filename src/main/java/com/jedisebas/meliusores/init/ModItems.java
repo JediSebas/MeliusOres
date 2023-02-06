@@ -1,10 +1,9 @@
 package com.jedisebas.meliusores.init;
 
 import com.jedisebas.meliusores.MeliusOres;
-import com.jedisebas.meliusores.content.BowOne;
-import com.jedisebas.meliusores.content.BowTwo;
-import com.jedisebas.meliusores.content.MeliusOresItemTier;
+import com.jedisebas.meliusores.content.*;
 import mod.alexndr.simplecorelib.content.SimpleShearsItem;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
@@ -53,6 +52,15 @@ public class ModItems {
 
     public static final RegistryObject<Item> IRON_BOW = ITEMS.register("iron_bow",
             () -> new BowOne(new Item.Properties().durability(750).tab(ModItemGroup.MELIUS_ORES_GROUP)));
+
+    public static final RegistryObject<NetheriteBucket> NETHERITE_BUCKET = ITEMS.register("netherite_bucket",
+            () -> new NetheriteBucket(new Item.Properties().stacksTo(16).tab(ModItemGroup.MELIUS_ORES_GROUP)));
+
+    public static final RegistryObject<NetheriteBucket> NETHERITE_BUCKET_WATER = ITEMS.register("netherite_bucket_water",
+            () -> new NetheriteBucket(Fluids.WATER, new Item.Properties().stacksTo(1).tab(ModItemGroup.MELIUS_ORES_GROUP)));
+
+    public static final RegistryObject<NetheriteBucket> NETHERITE_BUCKET_LAVA = ITEMS.register("netherite_bucket_lava",
+            () -> new NetheriteBucket(Fluids.LAVA, new Item.Properties().stacksTo(1).tab(ModItemGroup.MELIUS_ORES_GROUP)));
 
     public static void register(final IEventBus eventBus) {
         ITEMS.register(eventBus);

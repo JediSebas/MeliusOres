@@ -18,6 +18,10 @@
 
   "item.meliusores.alexandrite_gem": "Alexandrite",
 
+  "item.meliusores.netherite_bucket": "Netherite Bucket",
+  "item.meliusores.netherite_bucket_water": "Netherite Bucket of Water",
+  "item.meliusores.netherite_bucket_lava": "Netherite Bucket of Lava",
+
   "tips.punch_tooltip": "+Punch",
   "tips.unbreaking_tooltip": "+Unbreaking"
 }
