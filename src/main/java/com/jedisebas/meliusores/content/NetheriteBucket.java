@@ -24,7 +24,6 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.function.Supplier;
 
 public class NetheriteBucket extends BucketItem {
 
@@ -33,11 +32,6 @@ public class NetheriteBucket extends BucketItem {
     public NetheriteBucket(final Properties builder) {
         super(() -> Fluids.EMPTY, builder);
         this.content = Fluids.EMPTY;
-    }
-
-    public NetheriteBucket(final Supplier<? extends Fluid> supplier, final Properties builder) {
-        super(supplier, builder);
-        content = supplier.get();
     }
 
     public NetheriteBucket(final Fluid containedFluid, final Properties builder) {
@@ -101,6 +95,9 @@ public class NetheriteBucket extends BucketItem {
 
                         final ItemStack itemStack1 = new ItemStack(ModItems.NETHERITE_BUCKET.get());
                         playerIn.awardStat(Stats.ITEM_USED.get(this));
+                        if (playerIn.isCreative()) {
+                            return ActionResult.sidedSuccess(itemStack, worldIn.isClientSide());
+                        }
                         return ActionResult.sidedSuccess(itemStack1, worldIn.isClientSide());
                     } else {
                         return ActionResult.fail(itemStack);
