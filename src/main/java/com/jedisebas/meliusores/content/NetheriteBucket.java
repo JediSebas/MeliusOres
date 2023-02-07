@@ -1,5 +1,6 @@
 package com.jedisebas.meliusores.content;
 
+import com.jedisebas.meliusores.init.ModFluids;
 import com.jedisebas.meliusores.init.ModItems;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -24,19 +25,24 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.function.Supplier;
 
 public class NetheriteBucket extends BucketItem {
-
-    private final Fluid content;
+    private final Supplier<? extends Fluid> content;
 
     public NetheriteBucket(final Properties builder) {
         super(() -> Fluids.EMPTY, builder);
-        this.content = Fluids.EMPTY;
+        this.content = () -> Fluids.EMPTY;
     }
 
     public NetheriteBucket(final Fluid containedFluid, final Properties builder) {
         super(() -> containedFluid, builder);
-        this.content = containedFluid;
+        this.content = () -> containedFluid;
+    }
+
+    public NetheriteBucket(final Supplier<? extends Fluid> supplier, final Properties builder) {
+        super(supplier, builder);
+        this.content = supplier;
     }
 
     @Override
@@ -45,7 +51,7 @@ public class NetheriteBucket extends BucketItem {
     public ActionResult<ItemStack> use(final World worldIn, final PlayerEntity playerIn, final Hand handIn) {
 
         final ItemStack itemStack = playerIn.getItemInHand(handIn);
-        final BlockRayTraceResult rayTraceResult = getPlayerPOVHitResult(worldIn, playerIn, this.content == Fluids.EMPTY ? RayTraceContext.FluidMode.SOURCE_ONLY : RayTraceContext.FluidMode.NONE);
+        final BlockRayTraceResult rayTraceResult = getPlayerPOVHitResult(worldIn, playerIn, this.content.get() == Fluids.EMPTY ? RayTraceContext.FluidMode.SOURCE_ONLY : RayTraceContext.FluidMode.NONE);
         final ActionResult<ItemStack> actionResult = net.minecraftforge.event.ForgeEventFactory.onBucketUse(playerIn, worldIn, itemStack, rayTraceResult);
 
         if (actionResult != null) {
@@ -63,13 +69,13 @@ public class NetheriteBucket extends BucketItem {
 
             if (worldIn.mayInteract(playerIn, blockPos) && playerIn.mayUseItemAt(blockPos1, direction, itemStack)) {
                 final BlockState blockState = worldIn.getBlockState(blockPos);
-                if (this.content == Fluids.EMPTY) {
+                if (this.content.get() == Fluids.EMPTY) {
                     if (blockState.getBlock() instanceof IBucketPickupHandler) {
                         final Fluid fluid = ((IBucketPickupHandler) blockState.getBlock()).takeLiquid(worldIn, blockPos, blockState);
                         if (fluid != Fluids.EMPTY) {
                             playerIn.awardStat(Stats.ITEM_USED.get(this));
 
-                            SoundEvent soundEvent = this.content.getAttributes().getFillSound();
+                            SoundEvent soundEvent = this.content.get().getAttributes().getFillSound();
                             if (soundEvent == null) {
                                 soundEvent = fluid.is(FluidTags.LAVA) ? SoundEvents.BUCKET_FILL_LAVA : SoundEvents.BUCKET_FILL;
                             }
@@ -110,10 +116,16 @@ public class NetheriteBucket extends BucketItem {
     }
     
     private ItemStack getAccurateBucket(final Item bucket) {
-        return bucket.equals(Items.WATER_BUCKET) ? new ItemStack(ModItems.NETHERITE_BUCKET_WATER.get()) : new ItemStack(ModItems.NETHERITE_BUCKET_LAVA.get());
+        if (bucket.equals(Items.WATER_BUCKET)) {
+            return new ItemStack(ModItems.NETHERITE_BUCKET_WATER.get());
+        } else if (bucket.equals(Items.LAVA_BUCKET)) {
+            return new ItemStack(ModItems.NETHERITE_BUCKET_LAVA.get());
+        } else {
+            return new ItemStack(ModItems.NETHERITE_BUCKET_LAVAPLASMA.get());
+        }
     }
     
-    private boolean canBlockContainFluid(World worldIn, BlockPos posIn, BlockState blockstate) {
-        return blockstate.getBlock() instanceof ILiquidContainer && ((ILiquidContainer)blockstate.getBlock()).canPlaceLiquid(worldIn, posIn, blockstate, this.content);
+    private boolean canBlockContainFluid(final World worldIn, final BlockPos posIn, final BlockState blockState) {
+        return blockState.getBlock() instanceof ILiquidContainer && ((ILiquidContainer)blockState.getBlock()).canPlaceLiquid(worldIn, posIn, blockState, this.content.get());
     }
 }

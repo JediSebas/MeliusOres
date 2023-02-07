@@ -1,10 +1,10 @@
 package com.jedisebas.meliusores;
 
-import com.jedisebas.meliusores.init.ModBlocks;
-import com.jedisebas.meliusores.init.ModItemModelProperties;
-import com.jedisebas.meliusores.init.ModItems;
+import com.jedisebas.meliusores.init.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -37,6 +37,7 @@ public class MeliusOres {
 
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
+        ModFluids.register(eventBus);
 
         eventBus.addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -61,6 +62,10 @@ public class MeliusOres {
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().options);
         ModItemModelProperties.makeBow(ModItems.ALEXANDRITE_BOW.get());
         ModItemModelProperties.makeBow(ModItems.IRON_BOW.get());
+
+        RenderTypeLookup.setRenderLayer(ModFluids.LAVAPLASMA.get(), RenderType.translucent());
+        RenderTypeLookup.setRenderLayer(ModFluids.LAVAPLASMA_BLOCK.get(), RenderType.translucent());
+        RenderTypeLookup.setRenderLayer(ModFluids.FLOWING_LAVAPLASMA.get(), RenderType.translucent());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

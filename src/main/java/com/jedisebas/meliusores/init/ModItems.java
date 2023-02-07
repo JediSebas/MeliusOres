@@ -62,6 +62,9 @@ public class ModItems {
     public static final RegistryObject<NetheriteBucket> NETHERITE_BUCKET_LAVA = ITEMS.register("netherite_bucket_lava",
             () -> new NetheriteBucket(Fluids.LAVA, new Item.Properties().stacksTo(1).tab(ModItemGroup.MELIUS_ORES_GROUP)));
 
+    public static final RegistryObject<Item> NETHERITE_BUCKET_LAVAPLASMA = ITEMS.register("netherite_bucket_lavaplasma",
+            () -> new NetheriteBucket(() -> ModFluids.LAVAPLASMA.get(), new Item.Properties().stacksTo(1).tab(ModItemGroup.MELIUS_ORES_GROUP)));
+
     public static void register(final IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

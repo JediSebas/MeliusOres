@@ -21,6 +21,9 @@
   "item.meliusores.netherite_bucket": "Netherite Bucket",
   "item.meliusores.netherite_bucket_water": "Netherite Bucket of Water",
   "item.meliusores.netherite_bucket_lava": "Netherite Bucket of Lava",
+  "item.meliusores.netherite_bucket_lavaplasma": "Netherite Bucket of Lavaplasma",
+
+  "fluid.meliusores.lavaplasma": "Lavaplasma",
 
   "tips.punch_tooltip": "+Punch",
   "tips.unbreaking_tooltip": "+Unbreaking"
